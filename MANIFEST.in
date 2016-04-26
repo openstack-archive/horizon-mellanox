@@ -1,6 +1,8 @@
-include AUTHORS
-include ChangeLog
-exclude .gitignore
-exclude .gitreview
+include setup.py
 
-global-exclude *.pyc
+recursive-include mellanox_dashboard/templates *
+recursive-include mellanox_dashboard/static *
+recursive-include mellanox_dashboard/neopanel/templates *
+recursive-include mellanox_dashboard/aboutpanel/templates *
+recursive-include mellanox_dashboard/ufmpanel/templates *
+recursive-include mellanox_dashboard/settingspanel/templates *
