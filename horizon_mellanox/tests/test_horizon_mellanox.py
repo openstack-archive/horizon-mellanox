@@ -19,10 +19,10 @@ test_horizon-mellanox
 Tests for `horizon-mellanox` module.
 """
 
-from horizon-mellanox.tests import base
+from horizon_mellanox.tests import base
 
 
-class TestHorizon-mellanox(base.TestCase):
+class TestHorizon_mellanox(base.TestCase):
 
     def test_something(self):
         pass
