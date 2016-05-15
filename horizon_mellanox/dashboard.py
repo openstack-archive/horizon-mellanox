@@ -16,13 +16,13 @@
 
 from django.utils.translation import ugettext_lazy as _
 import horizon
+# import horizon_mellanox.api.rest
 
-import horizon_mellanox.api.rest
 
 class MlnxDashboard(horizon.Dashboard):
     name = _("Mellanox Technologies")
     slug = "horizon_mellanox"
-    panels = ('settingspanel', 'neopanel', 'ufmpanel', 'aboutpanel')  # Add your panels here.
-    default_panel = 'settingspanel'  # Specify the slug of the dashboard's default panel.
+    panels = ('settingspanel', 'neopanel', 'ufmpanel', 'aboutpanel')
+    default_panel = 'settingspanel'
 
 horizon.register(MlnxDashboard)
