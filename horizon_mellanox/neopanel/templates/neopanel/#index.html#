@@ -1,0 +1,47 @@
+shit{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "NEO" %}{% endblock %}
+
+{% block main %}
+
+<style>
+
+#content_body .container-fluid{
+    height: 100% !important;
+    margin-left: -15px;
+}
+
+#content_body .container-fluid .row{
+    height: 100% !important;
+}
+
+#content_body .container-fluid .row .col-xs-12{
+    height: 100% !important;
+    padding-right: 0px;
+}
+
+#content_body .container-fluid .row .col-xs-12 .page-header{
+    display: none !important;
+}
+
+iframe#neo_iframe{
+    width: 100%;
+    height: 99%;
+}
+</style>
+
+<ng-include src="'{{ STATIC_URL }}horizon_mellanox/js/horizon_mellanox.js'"></ng-include>
+
+<script>
+    alert(getCookie("mellanox_neo_host"));
+</script>
+
+<iframe id="neo_iframe" src="http://10.224.15.51/neo">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+
+{% endblock %}
+
+
+
