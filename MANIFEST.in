@@ -1,6 +1,14 @@
+include setup.py
 include AUTHORS
 include ChangeLog
 exclude .gitignore
 exclude .gitreview
 
 global-exclude *.pyc
+
+recursive-include horizon_mellanox/templates *
+recursive-include horizon_mellanox/static *
+recursive-include horizon_mellanox/neopanel/templates *
+recursive-include horizon_mellanox/aboutpanel/templates *
+recursive-include horizon_mellanox/ufmpanel/templates *
+recursive-include horizon_mellanox/settingspanel/templates *
