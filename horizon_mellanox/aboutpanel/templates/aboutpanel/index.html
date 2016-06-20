@@ -5,22 +5,34 @@
 {% block main %}
 
 <style>
+.breadcrumb{
+    display: none;
+}
+
+html, body, #container, #main_content {
+    height: 100% !important;
+}
+
+#content_body{
+    height: 100% !important;
+    margin-left: -15px;
+}
 
 #content_body .container-fluid{
     height: 100% !important;
     margin-left: -15px;
 }
 
-#content_body .container-fluid .row{
+#content_body .row{
     height: 100% !important;
 }
 
-#content_body .container-fluid .row .col-xs-12{
+#content_body .row .col-xs-12{
     height: 100% !important;
     padding-right: 0px;
 }
 
-#content_body .container-fluid .row .col-xs-12 .page-header{
+#content_body .row .col-xs-12 .page-header{
     display: none !important;
 }
 
