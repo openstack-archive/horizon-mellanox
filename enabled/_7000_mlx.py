@@ -23,8 +23,8 @@ ADD_EXCEPTIONS = {}
 # A list of applications to be added to INSTALLED_APPS.
 ADD_INSTALLED_APPS = ['horizon_mellanox']
 
-ADD_ANGULAR_MODULES = [
-    'horizon.dashboard.horizon_mellanox',
+ADD_JS_FILES = [
+    'horizon_mellanox/js/horizon_mellanox.js'
 ]
 
 AUTO_DISCOVER_STATIC_FILES = True
