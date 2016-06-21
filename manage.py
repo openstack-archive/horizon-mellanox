@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 
-# Copyright 2016 Mellanox Technologies, Ltd
-#
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
 # a copy of the License at
@@ -14,15 +12,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-# The slug of the dashboard to be added to HORIZON['dashboards']. Required.
-DASHBOARD = 'horizon_mellanox'
-# If set to True, this dashboard will be set as the default dashboard.
-DEFAULT = False
-# A dictionary of exception classes to be added to HORIZON['exceptions'].
-ADD_EXCEPTIONS = {}
-# A list of applications to be added to INSTALLED_APPS.
-ADD_INSTALLED_APPS = ['horizon_mellanox']
+import os
+import sys
 
-ADD_JS_FILES = [
-    'horizon_mellanox/js/horizon_mellanox.js'
-]
+from django.core.management import execute_from_command_line  # noqa
+
+if __name__ == "__main__":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                          "horizon_mellanox.settings")
+    execute_from_command_line(sys.argv)
