@@ -12,25 +12,32 @@ horizon.horizon_mellanox = {
     },
     prepareNEOPanel: function(){
         var val = this._getCookie("mellanox_neo_host");
-        if(val != ""){/*
-            // neo authentication
-            var xhttp = new XMLHttpRequest();
-            var url = "http://" + val + "/neo/login";
+        if(val != ""){
+            var url = "http://" + val + "/neo/login?next=%2Fneo%2F#";
             var user = this._getCookie("mellanox_neo_host_user");
             var password = this._getCookie("mellanox_neo_host_password");
-            var data = "username=" + user + "&password=" + password;
-            xhttp.open("POST", url, true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-            xhttp.onreadystatechange = function() {
-                alert("on");
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    alert("ready state");
-                    //document.getElementById("neo_iframe").src = "http://" + val + "/neo";
-                }
-            };
-            xhttp.send(data);*/
-            document.getElementById("neo_iframe").src = "http://" + val + "/neo";
+            var form_html = '<form id="neo_login" action="' + url + '" method="post" style="display:none;">' +
+                                '<div class="form-group">' +
+                                    '<input id="username" class="form-control" placeholder="Username" name="username" type="username" value="">' +
+                                '</div>' +
+                                '<div class="form-group">' +
+                                    '<input id="password" class="form-control" placeholder="Password" name="password" type="password" value="">' +
+                                '</div>' +
+                                '<input id="auto-id-app-login-btn" type="submit" value="Login" class="btn btn-primary">' +
+                                '<input type="hidden" name="redirect" value="true">' +
+                            '</form>' ;
+            var $frame = $('#neo_iframe');
+            setTimeout( function() {
+                var doc = $frame[0].contentWindow.document;
+                var $body = $('body', doc);
+                $body.html(form_html);
+                console.log($body);
+                //$body.find('#neo_login').hide();
+                $body.find('#username').val(user);
+                $body.find('#password').val(password);
+                $body.find('#neo_login').submit();
+            }, 1 );
         }else{
             var msg = "<h5 style='margin:20px;'>NEO hostname/ip is not set, you can set it in Configurations panel</h5>";
             document.getElementsByClassName("col-xs-12")[0].innerHTML = msg;
