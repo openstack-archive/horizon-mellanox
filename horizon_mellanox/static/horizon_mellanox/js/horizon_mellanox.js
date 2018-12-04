@@ -29,7 +29,10 @@ horizon.horizon_mellanox = {
                             '</form>' ;
             var $frame = $('#neo_iframe');
             setTimeout( function() {
-                var doc = $frame[0].contentWindow.document;
+                if ($frame[0] && $frame[0].contentWindow)
+                {
+                    var doc = $frame[0].contentWindow.document;
+                };
                 var $body = $('body', doc);
                 $body.html(form_html);
                 $body.find('#username').val(user);
